@@ -1,0 +1,38 @@
+﻿{
+  "schemaVersion": 1,
+  "id": "rollbackmod",
+  "version": "${version}",
+  "name": "Rollback Mod",
+  "description": "Death rolls the world back to the last shared checkpoint (Fabric 1.21.1 port).",
+  "authors": [
+    "HanMoyun"
+  ],
+  "contact": {},
+  "license": "All Rights Reserved",
+  "icon": "rollbackmod_logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.taobao.koi.rollbackmod.RollbackMod"
+    ],
+    "client": [
+      "com.taobao.koi.rollbackmod.client.RollbackModClient"
+    ],
+    "modmenu": [
+      "com.taobao.koi.rollbackmod.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "rollbackmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "cloth-config": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

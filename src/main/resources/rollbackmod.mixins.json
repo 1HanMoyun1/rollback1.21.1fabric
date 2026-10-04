@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.taobao.koi.rollbackmod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LivingEntityMixin",
+    "LevelMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
