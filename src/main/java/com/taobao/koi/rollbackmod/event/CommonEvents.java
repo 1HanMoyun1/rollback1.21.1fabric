@@ -40,7 +40,7 @@ public final class CommonEvents {
     private static void onPlayerJoin(ServerPlayer player) {
         // 世界创建时的存档点里没有玩家：玩家加入时补拍快照进存档点，
         // 保证死亡回溯能把玩家送回加入时的状态（而不是原地不动）
-        RollbackManager.addPlayerToCheckpoint(player.getServer(), player);
+        RollbackManager.addPlayerToCheckpoint(player.level().getServer(), player);
         SelfDestructManager.enforce(player);
         DayCounterManager.syncTo(player);
     }
@@ -56,11 +56,11 @@ public final class CommonEvents {
         if (!RollbackConfig.enableDeathRollback) {
             return true;
         }
-        if (!RollbackManager.hasCheckpoint(player.getServer())) {
+        if (!RollbackManager.hasCheckpoint(player.level().getServer())) {
             return true;
         }
         player.setHealth(Math.max(1.0F, player.getHealth()));
-        RollbackManager.rollback(player.getServer(), "player_death");
+        RollbackManager.rollback(player.level().getServer(), "player_death");
         return false;
     }
 
@@ -75,7 +75,7 @@ public final class CommonEvents {
         if (!RollbackConfig.enableDeathRollback) {
             return false;
         }
-        if (!RollbackManager.hasCheckpoint(player.getServer())) {
+        if (!RollbackManager.hasCheckpoint(player.level().getServer())) {
             return false;
         }
         if (amount < player.getHealth() + player.getAbsorptionAmount()) {
@@ -83,7 +83,7 @@ public final class CommonEvents {
         }
 
         player.setHealth(Math.max(1.0F, player.getHealth()));
-        RollbackManager.rollback(player.getServer(), "fatal_damage");
+        RollbackManager.rollback(player.level().getServer(), "fatal_damage");
         return true;
     }
 

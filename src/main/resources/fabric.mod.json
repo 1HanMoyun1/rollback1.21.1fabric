@@ -3,12 +3,12 @@
   "id": "rollbackmod",
   "version": "${version}",
   "name": "Rollback Mod",
-  "description": "Death rolls the world back to the last shared checkpoint (Fabric 1.21.1 port).",
+  "description": "Death rolls the world back to the last shared checkpoint (Fabric 1.21.x port).",
   "authors": [
     "HanMoyun"
   ],
   "contact": {},
-  "license": "All Rights Reserved",
+  "license": "GPL-3.0",
   "icon": "rollbackmod_logo.png",
   "environment": "*",
   "entrypoints": {
@@ -28,11 +28,11 @@
   "depends": {
     "fabricloader": ">=0.16.9",
     "fabric-api": "*",
-    "minecraft": "~1.21.1",
-    "java": ">=21",
-    "cloth-config": "*"
+    "minecraft": ">=1.21 <1.22",
+    "java": ">=21"
   },
   "suggests": {
-    "modmenu": "*"
+    "modmenu": "*",
+    "cloth-config": "*"
   }
 }
